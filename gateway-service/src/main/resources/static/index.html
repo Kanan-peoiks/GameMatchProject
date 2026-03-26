@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameMatch</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<main class="shell">
+    <section id="authView" class="auth-view">
+        <div class="brand-card">
+            <div class="brand-badge">GM</div>
+            <h1>GameMatch</h1>
+            <p>Real-time player matching, room chat, and language learning hub.</p>
+        </div>
+
+        <div class="auth-card">
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="loginTab">Login</button>
+                <button class="tab-btn" data-tab="registerTab">Register</button>
+            </div>
+
+            <form id="loginTab" class="auth-form active">
+                <h2>Welcome back</h2>
+                <label>
+                    <span>Email</span>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required />
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required />
+                </label>
+                <button type="submit" class="primary-btn">Login</button>
+                <p class="form-note">Use your account to enter rooms instantly.</p>
+            </form>
+
+            <form id="registerTab" class="auth-form">
+                <h2>Create account</h2>
+                <label>
+                    <span>Username</span>
+                    <input type="text" id="registerUsername" placeholder="kenan" required />
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" id="registerEmail" placeholder="you@example.com" required />
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" id="registerPassword" placeholder="••••••••" required />
+                </label>
+                <button type="submit" class="primary-btn">Register</button>
+                <p class="form-note">After registration you will be logged in automatically.</p>
+            </form>
+
+            <div id="authMessage" class="message-box hidden"></div>
+        </div>
+    </section>
+
+    <section id="appView" class="app-view hidden">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="brand-mini">
+                    <div class="brand-badge small">GM</div>
+                    <div>
+                        <strong>GameMatch</strong>
+                        <span>Connected</span>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar" id="profileAvatar">U</div>
+                    <div class="profile-meta">
+                        <strong id="profileName">User</strong>
+                        <span id="profileEmail">user@mail.com</span>
+                    </div>
+                </div>
+
+                <button id="logoutBtn" class="ghost-btn">Logout</button>
+            </div>
+
+            <div class="room-section">
+                <div class="section-title">
+                    <span>Rooms</span>
+                    <button id="refreshRoomsBtn" class="icon-btn" title="Refresh rooms">↻</button>
+                </div>
+                <div id="roomList" class="room-list"></div>
+            </div>
+        </aside>
+
+        <section class="chat-area">
+            <header class="chat-header">
+                <div>
+                    <h2 id="roomTitle">Select a room</h2>
+                    <p id="roomDescription">Choose a room from the left sidebar.</p>
+                </div>
+                <div class="status-pill" id="roomStatus">Idle</div>
+            </header>
+
+            <div id="messagesList" class="messages-list">
+                <div class="empty-state">
+                    <h3>No room selected</h3>
+                    <p>Select one of the three rooms to start chatting.</p>
+                </div>
+            </div>
+
+            <form id="messageForm" class="composer hidden">
+                <input
+                        id="messageInput"
+                        type="text"
+                        placeholder="Write a message..."
+                        autocomplete="off"
+                />
+                <button type="submit" class="primary-btn">Send</button>
+            </form>
+        </section>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
