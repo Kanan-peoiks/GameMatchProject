@@ -3,26 +3,24 @@ server:
 
 spring:
   application:
-    name: api-gateway
+    name: gateway-service
 
   cloud:
     gateway:
-      routes:
-        - id: auth-service
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/auth/**
+      server:
+        webmvc:
+          routes:
+            - id: auth-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/auth/**
 
-        - id: room-service
-          uri: http://localhost:8082
-          predicates:
-            - Path=/api/rooms/**
+            - id: room-service
+              uri: http://localhost:8085
+              predicates:
+                - Path=/api/rooms/**
 
-        - id: chat-service
-          uri: http://localhost:8083
-          predicates:
-            - Path=/ws/**, /api/chat/**
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
+            - id: chat-service
+              uri: http://localhost:8083
+              predicates:
+                - Path=/api/chat/**
