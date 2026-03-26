@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: room-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gamematch_room
+    username: postgres
+    password: p1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

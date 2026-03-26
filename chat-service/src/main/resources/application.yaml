@@ -1,0 +1,20 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: chat-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gamematch_chat
+    username: postgres
+    password: p1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  websocket:
+    message-broker:
+      enabled: true
