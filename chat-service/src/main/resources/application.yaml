@@ -6,15 +6,11 @@ spring:
     name: chat-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/gamematch_chat
-    username: postgres
-    password: p1234
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/gamematch_chat}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:p1234}
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-
-  websocket:
-    message-broker:
-      enabled: true
